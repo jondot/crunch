@@ -39,8 +39,7 @@ row.Feature("doing ip to location", []string{"country", "city"},
   })
 
 // By default, will build a hadoop-compatible streamer process that understands json: (stdin[JSON] to stdout[TSV])
-// Also will plug-in Crunch's CLI utility functions (use `$ ./processor
--help)
+// Also will plug-in Crunch's CLI utility functions (use -help)
 crunch.ProcessJson(row)
 ```
 
@@ -102,7 +101,7 @@ a ready-made processor:
 ```go
 crunch.ProcessJson(row)
 ```
-This processor reads JSON and outputs Hadoop-streaming TSV, based on your row description and functions.
+This processor reads JSON and outputs Hadoop-streaming TSV that is compatible with [Pig STREAM](https://pig.apache.org/docs/r0.11.1/basic.html#STREAM) (which we use later), based on your row description and functions.
 
 It also injects the following commands into your binary:
 
