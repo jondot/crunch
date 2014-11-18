@@ -1,7 +1,7 @@
 
 ![](/media/logo.png)
 
-A fast to iterate, fast to run, Go based tooklit for ETL and feature extraction on Hadoop.
+A fast to iterate, fast to run, Go based toolkit for ETL and feature extraction on Hadoop.
 
 
 
