@@ -21,6 +21,10 @@ You would like to:
 4. Optionally extract features - run custom code on field values and
    output the result as new field(s)
 
+![](/media/crunch.gif)
+
+
+So here's a detailed view:
 
 ```go
 // Describe your row
@@ -95,7 +99,7 @@ A field description is:
 
 
 ## The Processor
-Crunch comes with a built in processo rig, that packs its API into
+Crunch comes with a built in processor rig, that packs its API into
 a ready-made processor:
 
 ```go
