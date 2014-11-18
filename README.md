@@ -3,6 +3,8 @@
 
 A fast to iterate, fast to run, Go based toolkit for ETL and feature extraction on Hadoop.
 
+Use [crunch-starter](https://github.com/jondot/crunch-starter) for a boilerplate project to kickstart a production
+setup.
 
 
 ## Quick Start
