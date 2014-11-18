@@ -12,7 +12,7 @@ SET parquet.enable.dictionary true
 SET mapreduce.map.memory.mb 2048
 SET job.name 'crunch-$inurl'
 
-DEFINE PROCESSOR `+"`%%process%%`"+` SHIP('%%process%%');
+DEFINE PROCESSOR ` + "`%%process%%`" + ` SHIP('%%process%%');
 
 
 coll =  STREAM     ( LOAD '$inurl' AS (line:CHARARRAY) )
@@ -35,4 +35,3 @@ PARTITIONED BY(dt string)
 STORED AS PARQUET
 LOCATION '/data';
 `
-

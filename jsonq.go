@@ -1,9 +1,9 @@
 package crunch
 
 import (
+	"errors"
 	"fmt"
 	"strconv"
-  "errors"
 )
 
 type JsonQuery struct {
@@ -292,8 +292,8 @@ func query(blob interface{}, query string) (interface{}, error) {
 
 	val, ok := blob.(map[string]interface{})[query]
 	if !ok {
-    // FIX removed fancy error reporting in favor of better performance
-    return nil, errors.New("field access: " + query)
+		// FIX removed fancy error reporting in favor of better performance
+		return nil, errors.New("field access: " + query)
 	}
 	return val, nil
 }
