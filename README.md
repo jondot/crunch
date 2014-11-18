@@ -1,4 +1,3 @@
-# Crunch
 
 ![](/media/logo.png)
 
