@@ -13,8 +13,8 @@ func makeQuery(path string) func(crunch.DataReader) (interface{}, error) {
 func main() {
 	transform := crunch.NewTransformer()
 	row := crunch.NewRow()
-	row.FieldWithDefault("ev_tshd", "", makeQuery("head.timestamp"), transform.AsIs)
-	row.FieldWithDefault("ev_ts", "", makeQuery("action.timestamp"), transform.AsIs)
+	row.FieldWithDefault("ip", "", makeQuery("x-forwarded-for"), transform.AsIs)
+	row.FieldWithDefault("ev_ts", "", makeQuery("head.timestamp"), transform.AsIs)
 	row.FieldWithDefault("ev_json", "", makeQuery("action"), transform.AsJson)
 	row.FieldWithDefault("ev_yesno:int", "0", makeQuery("action.yesno"), func(val interface{}) string {
 		if val.(string) == "yes" {
