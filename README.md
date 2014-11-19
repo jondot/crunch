@@ -163,3 +163,13 @@ Some detailed examples can be seen in `/examples/detailed_processor.go`.
 
 
 
+# Contributing
+
+Fork, implement, add tests, pull request, get my everlasting thanks and a respectable place here :).
+
+
+# Copyright
+
+Copyright (c) 2014 [Dotan Nahum](http://gplus.to/dotan) [@jondot](http://twitter.com/jondot). See MIT-LICENSE for further details.
+
+
