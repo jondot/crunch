@@ -61,6 +61,7 @@ func (self *Row) Write(r DataReader, w DataWriter) error {
 			return err
 		}
 
+		field.Value = val
 		w.Field(val)
 	}
 
