@@ -19,8 +19,8 @@ You would like to:
 
 1. Parse JSON records
 2. Extract fields
-3. Optionally cleanup/process fields
-4. Optionally extract features - run custom code on field values and
+3. Cleanup/process fields
+4. Extract features - run custom code on field values and
    output the result as new field(s)
 
 ![](/media/crunch.gif)
