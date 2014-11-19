@@ -35,14 +35,19 @@ type feature struct {
 type Row struct {
 	Fields   []field
 	features []feature
+  fieldIndex map[string]*field
 }
 
 func NewRow() *Row {
-	return &Row{}
+  return &Row{fieldIndex: map[string]*field{}}
 }
 
 func (self *Row) Size() int {
 	return len(self.Fields)
+}
+
+func (self *Row) GetField(name string) *field{
+  return self.fieldIndex[name]
 }
 
 func (self *Row) Write(r DataReader, w DataWriter) error {
@@ -84,8 +89,13 @@ func (self *Row) Write(r DataReader, w DataWriter) error {
 	return nil
 }
 
+func (self *Row) addField(f field){
+ self.Fields = append(self.Fields, f)
+ self.fieldIndex[f.Name] = &f
+}
+
 func (self *Row) Field(decl string, extract func(r DataReader) (interface{}, error), transform func(interface{}) string) {
-	self.Fields = append(self.Fields, field{
+  self.addField(field{
 		Name:      decl,
 		Extract:   extract,
 		Transform: transform,
@@ -93,7 +103,7 @@ func (self *Row) Field(decl string, extract func(r DataReader) (interface{}, err
 }
 
 func (self *Row) FieldWithDefault(decl string, defval string, extract func(r DataReader) (interface{}, error), transform func(interface{}) string) {
-	self.Fields = append(self.Fields, field{
+	self.addField(field{
 		Name:       decl,
 		Extract:    extract,
 		Transform:  transform,
@@ -103,7 +113,7 @@ func (self *Row) FieldWithDefault(decl string, defval string, extract func(r Dat
 }
 
 func (self *Row) FieldWithValue(decl string, val string) {
-	self.Fields = append(self.Fields, field{
+	self.addField(field{
 		Name:     decl,
 		Value:    val,
 		HasValue: true,
@@ -112,7 +122,7 @@ func (self *Row) FieldWithValue(decl string, val string) {
 
 func (self *Row) Feature(desc string, decls []string, process func(DataReader, *Row) []string) {
 	for _, decl := range decls {
-		self.Fields = append(self.Fields, field{
+		self.addField(field{
 			Name:       decl,
 			IsComputed: true,
 		})
