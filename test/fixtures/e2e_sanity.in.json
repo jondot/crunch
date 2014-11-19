@@ -1,0 +1,1 @@
+{"client":{"ip":"127.0.0.1","host":"foobar","retries":4,"lat":33.0,"lon":34.0},"apps":["com.foobar.baz","com.foobar.qux"],"screen":{"width":640,"height":480},"debug":true}
